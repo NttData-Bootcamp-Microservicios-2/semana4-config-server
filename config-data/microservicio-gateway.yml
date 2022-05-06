@@ -106,6 +106,19 @@ spring:
         id: microservicio-tarjeta-debito
         uri: lb://microservicio-tarjeta-debito
         predicates: Path=/api/tarjeta/debito/**
+      routes[21]:
+        filters: StripPrefix=3
+        id: microservicio-bootcoin-currency
+        uri: lb://microservicio-bootcoin-currency
+        predicates: Path=/api/bootcoin/currency/**
+      routes[22]:
+        filters: StripPrefix=3
+        id: microservicio-yanki-wallet
+        uri: lb://microservicio-yanki-wallet
+        predicates: Path=/api/yanki/wallet/**
+
+
+
 
       discovery:
         locator:
@@ -115,6 +128,11 @@ spring:
         enabled: 'false'
   application:
     name: microservicio-gateway
+  kafka:
+    bootstrap-servers: localhost:9092
+  redis:
+        url: redis://localhost:6379
+
 server:
   port: '8090'
 eureka:
@@ -125,3 +143,4 @@ eureka:
       defaultZone: https://ms-eureka-server.azurewebsites.net:8761/eureka
     instance:
       hostname: localhost
+  

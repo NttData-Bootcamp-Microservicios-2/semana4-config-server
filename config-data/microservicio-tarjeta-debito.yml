@@ -12,7 +12,14 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://joffre:joffre@bootcamp-microservicios.c9yhl.mongodb.net/tarjeta-debito?retryWrites=true&w=majority
+  kafka:
+    bootstrap-servers: localhost:9092
+  redis:
+        url: redis://localhost:6379
 
+
+
+    
 
 resilience4j.circuitbreaker:
     instances:
