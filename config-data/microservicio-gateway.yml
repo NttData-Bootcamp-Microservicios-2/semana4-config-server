@@ -1,4 +1,20 @@
+
+server:
+  port: 8090
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+      
 spring:
+  application:
+    name: microservicio-gateway
+
   cloud:
     gateway:
       routes[0]:
@@ -126,8 +142,7 @@ spring:
     loadbalancer:
       ribbon:
         enabled: 'false'
-  application:
-    name: microservicio-gateway
+ 
   kafka:
     bootstrap-servers: localhost:9092
   redis:
@@ -135,15 +150,5 @@ spring:
 
 
 
-server:
-  port: 8090
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
   
